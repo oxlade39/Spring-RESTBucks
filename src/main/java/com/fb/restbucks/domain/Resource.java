@@ -7,8 +7,10 @@ public class Resource<T> {
 
 	private T entity;
 	private List<Link> links;
-	
-	public Resource(T entity){
+
+    public Resource() {}
+
+    public Resource(T entity){
 		this.entity = entity;
 		this.links  = new LinkedList<Link>();
 	}
@@ -33,5 +35,13 @@ public class Resource<T> {
 	public void setLinks(List<Link> links) {
 		this.links = links;
 	}
-	
+
+
+    @Override
+    public String toString() {
+        return "Resource{" +
+                "entity=" + entity +
+                ", links=" + links +
+                '}';
+    }
 }

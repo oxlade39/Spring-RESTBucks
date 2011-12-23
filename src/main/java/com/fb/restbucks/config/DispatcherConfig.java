@@ -44,10 +44,10 @@ public class DispatcherConfig extends WebMvcConfigurerAdapter {
     }
 
 
-    @Bean
-	public DefaultAnnotationHandlerMapping handlerMapping(){
-		return new DefaultAnnotationHandlerMapping();
-	}
+//    @Bean
+//	public DefaultAnnotationHandlerMapping handlerMapping(){
+//		return new DefaultAnnotationHandlerMapping();
+//	}
 
 
 }

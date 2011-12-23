@@ -26,5 +26,13 @@ public class Link {
 	public void setMethod(HttpMethod method) {
 		this.method = method;
 	}
-	
+
+    @Override
+    public String toString() {
+        return "Link{" +
+                "rel='" + rel + '\'' +
+                ", href='" + href + '\'' +
+                ", method=" + method +
+                '}';
+    }
 }

@@ -19,7 +19,7 @@ import com.fb.restbucks.exception.InvalidTagException;
 import com.fb.restbucks.services.OrderService;
 
 @Controller
-@RequestMapping("/orders/*")
+@RequestMapping("/orders")
 public class OrderController extends BaseController<Resource<Order>>{
 
 	@Autowired
@@ -32,7 +32,7 @@ public class OrderController extends BaseController<Resource<Order>>{
 		return new ResponseEntity<Resource<Order>>(resource,HttpStatus.CREATED);
 	}
 	
-	@RequestMapping(consumes="application/json", produces="application/json", method=RequestMethod.GET, value="/{id}")
+	@RequestMapping(produces="application/json", method=RequestMethod.GET, value="/{id}")
 	public ResponseEntity<Resource<Order>> getOrder(@PathVariable("id") String id){
 		Order order = orderService.find(id);
 		Resource<Order> resource = new Resource<Order>(order);

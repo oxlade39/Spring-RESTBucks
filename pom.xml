@@ -93,12 +93,12 @@
             <version>1.0</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-web-api</artifactId>
-            <version>6.0</version>
-            <scope>provided</scope>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>javax</groupId>-->
+            <!--<artifactId>javaee-web-api</artifactId>-->
+            <!--<version>6.0</version>-->
+            <!--<scope>provided</scope>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>org.springframework</groupId>
@@ -129,8 +129,26 @@
             <artifactId>yatspec</artifactId>
             <version>186</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-catalina</artifactId>
+            <version>${tomcat.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>${tomcat.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-jasper</artifactId>
+            <version>${tomcat.version}</version>
+            <scope>test</scope>
+        </dependency>
 
-	</dependencies>
+    </dependencies>
 
 	<build>
 		<finalName>restbucks</finalName>
@@ -149,28 +167,9 @@
                 <artifactId>maven-t7-plugin</artifactId>
                 <version>0.9.9.M1</version>
                 <configuration>
-                    <tomcatVersion>7.0.22</tomcatVersion>
+                    <tomcatVersion>${tomcat.version}</tomcatVersion>
                 </configuration>
 
-                <executions>
-                    <execution>
-                        <id>start.tomcat</id>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <phase>pre-integration-test</phase>
-                        <configuration>
-                            <tomcatSetAwait>false</tomcatSetAwait>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>stop.tomcat</id>
-                        <goals>
-                            <goal>stop</goal>
-                        </goals>
-                        <phase>post-integration-test</phase>
-                    </execution>
-                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -221,5 +220,6 @@
 		<cglib.version>2.2.2</cglib.version>
 		<org.slf4j-version>1.6.1</org.slf4j-version>
         <yatspec.output.dir>${project.build.directory}/yatspec</yatspec.output.dir>
+        <tomcat.version>7.0.22</tomcat.version>
 	</properties>
 </project>
