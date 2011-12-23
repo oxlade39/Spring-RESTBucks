@@ -30,15 +30,21 @@ public class DispatcherConfig extends WebMvcConfigurerAdapter {
 	@Override
 	public void configureMessageConverters(
 			List<HttpMessageConverter<?>> converters) {
-		MappingJacksonHttpMessageConverter converter = new MappingJacksonHttpMessageConverter();
-		List<MediaType> mediatypes = new ArrayList<MediaType>();
-		mediatypes.add(MediaType.APPLICATION_JSON);
-		converter.setSupportedMediaTypes(mediatypes);
-		converters.add(converter);
+        converters.addAll(messageConverters());
 	}
 
-	
-	@Bean
+    public static List<HttpMessageConverter<?>> messageConverters() {
+        List<HttpMessageConverter<?>> converters = new ArrayList<HttpMessageConverter<?>>();
+        MappingJacksonHttpMessageConverter converter = new MappingJacksonHttpMessageConverter();
+        List<MediaType> mediatypes = new ArrayList<MediaType>();
+        mediatypes.add(MediaType.APPLICATION_JSON);
+        converter.setSupportedMediaTypes(mediatypes);
+        converters.add(converter);
+        return converters;
+    }
+
+
+    @Bean
 	public DefaultAnnotationHandlerMapping handlerMapping(){
 		return new DefaultAnnotationHandlerMapping();
 	}
