@@ -108,9 +108,26 @@
         </dependency>
         <dependency>
             <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
+            <artifactId>junit-dep</artifactId>
             <version>4.8.2</version>
             <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.hamcrest</groupId>
+                    <artifactId>hamcrest-core</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-core</artifactId>
+            <version>1.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.googlecode.yatspec</groupId>
+            <artifactId>yatspec</artifactId>
+            <version>186</version>
         </dependency>
 
 	</dependencies>
@@ -178,17 +195,26 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <excludes>
-                        <exclude>**/*SIT.java</exclude>
-                    </excludes>
+                    <systemPropertyVariables>
+                        <yatspec.output.dir>${project.build.directory}/yatspec</yatspec.output.dir>
+                    </systemPropertyVariables>
                 </configuration>
             </plugin>
         </plugins>
     </build>
 
+    <repositories>
+        <repository>
+            <id>yatspec.repo</id>
+            <name>The Yatspec Repository</name>
+            <url>http://repo.bodar.com/</url>
+        </repository>
+    </repositories>
+
 	<properties>
 		<spring.version>3.1.0.RELEASE</spring.version>
 		<cglib.version>2.2.2</cglib.version>
 		<org.slf4j-version>1.6.1</org.slf4j-version>
+        <yatspec.output.dir>${project.build.directory}/yatspec</yatspec.output.dir>
 	</properties>
 </project>
