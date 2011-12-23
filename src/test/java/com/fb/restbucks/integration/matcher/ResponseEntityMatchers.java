@@ -1,4 +1,4 @@
-package com.fb.restbucks.integration;
+package com.fb.restbucks.integration.matcher;
 
 import org.hamcrest.FeatureMatcher;
 import org.hamcrest.Matcher;

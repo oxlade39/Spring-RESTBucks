@@ -1,4 +1,4 @@
-package com.fb.restbucks.integration;
+package com.fb.restbucks.integration.container;
 
 import com.fb.restbucks.servlet.AppInitializer;
 import org.apache.catalina.Context;

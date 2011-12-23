@@ -1,7 +1,6 @@
-package com.fb.restbucks.integration;
+package com.fb.restbucks.integration.builder;
 
 import com.fb.restbucks.domain.*;
-import com.fb.restbucks.integration.builder.TestBuilder;
 
 import java.util.Arrays;
 import java.util.List;
@@ -14,7 +13,7 @@ public class OrderBuilder implements TestBuilder<Order> {
     private OrderStatus status = OrderStatus.PENDING;
     private List<Item> items = Arrays.asList(item());
 
-    static OrderBuilder forAnAmericano() {
+    public static OrderBuilder forAnAmericano() {
         return new OrderBuilder();
     }
 

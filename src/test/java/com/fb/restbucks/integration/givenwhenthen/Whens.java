@@ -1,4 +1,4 @@
-package com.fb.restbucks.integration;
+package com.fb.restbucks.integration.givenwhenthen;
 
 import com.fb.restbucks.domain.Resource;
 import com.fb.restbucks.integration.builder.NullObjectBuilder;

@@ -1,14 +1,16 @@
-package com.fb.restbucks.integration;
+package com.fb.restbucks.integration.givenwhenthen;
 
+import com.fb.restbucks.integration.container.Tomcat;
+import com.fb.restbucks.integration.builder.OrderBuilder;
 import com.googlecode.yatspec.state.givenwhenthen.CapturedInputAndOutputs;
 import com.googlecode.yatspec.state.givenwhenthen.GivensBuilder;
 import com.googlecode.yatspec.state.givenwhenthen.InterestingGivens;
 import com.googlecode.yatspec.state.givenwhenthen.StateExtractor;
 import org.springframework.http.ResponseEntity;
 
-import static com.fb.restbucks.integration.OrderBuilder.forAnAmericano;
-import static com.fb.restbucks.integration.StateExtractors.theResponse;
-import static com.fb.restbucks.integration.Whens.aPutRequestIsMadeTo;
+import static com.fb.restbucks.integration.builder.OrderBuilder.forAnAmericano;
+import static com.fb.restbucks.integration.givenwhenthen.StateExtractors.theResponse;
+import static com.fb.restbucks.integration.givenwhenthen.Whens.aPutRequestIsMadeTo;
 
 /**
  * @author oxladed

@@ -1,4 +1,4 @@
-package com.fb.restbucks.integration;
+package com.fb.restbucks.integration.givenwhenthen;
 
 import com.googlecode.yatspec.state.givenwhenthen.CapturedInputAndOutputs;
 import com.googlecode.yatspec.state.givenwhenthen.StateExtractor;
