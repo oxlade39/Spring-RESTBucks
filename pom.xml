@@ -209,6 +209,11 @@
             <name>The Yatspec Repository</name>
             <url>http://repo.bodar.com/</url>
         </repository>
+        <repository>
+            <id>spring-milestone</id>
+            <name>Spring Maven MILESTONE Repository</name>
+            <url>http://maven.springframework.org/milestone</url>
+        </repository>
     </repositories>
 
 	<properties>
