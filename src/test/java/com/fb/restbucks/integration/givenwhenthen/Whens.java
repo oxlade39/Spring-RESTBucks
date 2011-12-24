@@ -19,11 +19,11 @@ import static java.util.Arrays.asList;
  */
 public class Whens {
 
-    public static <T> ActionUnderTest aPutRequestIsMadeTo(final String relativePath, final TestBuilder<T> bodyBuilder) {
+    public static <T> ActionUnderTest aPUTRequestIsMadeTo(final String relativePath, final TestBuilder<T> bodyBuilder) {
         return new RequestExecutor<T>(relativePath, bodyBuilder, HttpMethod.POST);
     }
     
-    public static <T> ActionUnderTest aGetRequestIsMadeTo(final String relativePath) {
+    public static <T> ActionUnderTest aGETRequestIsMadeTo(final String relativePath) {
         TestBuilder<T> nullObject = nullObject();
         return new RequestExecutor<T>(relativePath, nullObject, HttpMethod.GET);
     }

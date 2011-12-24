@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 
 import static com.fb.restbucks.integration.builder.OrderBuilder.forAnAmericano;
 import static com.fb.restbucks.integration.givenwhenthen.StateExtractors.theResponse;
-import static com.fb.restbucks.integration.givenwhenthen.Whens.aPutRequestIsMadeTo;
+import static com.fb.restbucks.integration.givenwhenthen.Whens.aPUTRequestIsMadeTo;
 
 /**
  * @author oxladed
@@ -35,7 +35,7 @@ public class Givens {
                 aDeployedServer().build(interestingGivens);
                 CapturedInputAndOutputs temporary = new CapturedInputAndOutputs();
                 OrderBuilder order = forAnAmericano().withId(orderId);
-                aPutRequestIsMadeTo("/orders/", order).execute(interestingGivens, temporary);
+                aPUTRequestIsMadeTo("/orders/", order).execute(interestingGivens, temporary);
                 StateExtractor<ResponseEntity<String>> responseExtractor = theResponse();
                 ResponseEntity<String> responseEntity = responseExtractor.execute(temporary);
                 interestingGivens.add("Order Location", responseEntity.getHeaders().getLocation());

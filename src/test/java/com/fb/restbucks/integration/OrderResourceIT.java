@@ -20,8 +20,8 @@ import static com.fb.restbucks.integration.givenwhenthen.Givens.anOrderExistsWit
 import static com.fb.restbucks.integration.builder.OrderBuilder.forAnAmericano;
 import static com.fb.restbucks.integration.matcher.ResponseEntityMatchers.hasStatus;
 import static com.fb.restbucks.integration.givenwhenthen.StateExtractors.theResponse;
-import static com.fb.restbucks.integration.givenwhenthen.Whens.aGetRequestIsMadeTo;
-import static com.fb.restbucks.integration.givenwhenthen.Whens.aPutRequestIsMadeTo;
+import static com.fb.restbucks.integration.givenwhenthen.Whens.aGETRequestIsMadeTo;
+import static com.fb.restbucks.integration.givenwhenthen.Whens.aPUTRequestIsMadeTo;
 import static com.googlecode.yatspec.internal.totallylazy.Sequences.sequence;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertEquals;
@@ -35,14 +35,14 @@ public class OrderResourceIT extends TestState implements WithCustomResultListen
     @Test
     public void postAnOrder() throws Exception {
         given(aDeployedServer());
-        when(aPutRequestIsMadeTo("/orders/", forAnAmericano()));
+        when(aPUTRequestIsMadeTo("/orders/", forAnAmericano()));
         then(theResponse(), hasStatus(equalTo(HttpStatus.CREATED)));
     }
 
     @Test
     public void getAnExistingOrder() throws Exception {
         given(anOrderExistsWithId("77777"));
-        when(aGetRequestIsMadeTo("/orders/77777"));
+        when(aGETRequestIsMadeTo("/orders/77777"));
         then(theResponse(), hasStatus(equalTo(HttpStatus.OK)));
     }
 
