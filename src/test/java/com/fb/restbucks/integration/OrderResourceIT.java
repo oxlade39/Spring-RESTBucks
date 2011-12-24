@@ -1,5 +1,6 @@
 package com.fb.restbucks.integration;
 
+import com.fb.restbucks.integration.renderer.ResponseEntityRenderer;
 import com.googlecode.yatspec.junit.Notes;
 import com.googlecode.yatspec.junit.SpecResultListener;
 import com.googlecode.yatspec.junit.SpecRunner;
@@ -54,6 +55,8 @@ public class OrderResourceIT extends TestState implements WithCustomResultListen
 
     private HtmlResultRenderer fancyHtmlRenderer() {
         return new HtmlResultRenderer()
-                .withCustomRenderer(Notes.class, new HyperlinkRenderer(new NotesRenderer(), "(?:#)([^\\s]+)", "<a href='http://localhost:8080/'>$1</a>"));
+                .withCustomRenderer(Notes.class, new HyperlinkRenderer(new NotesRenderer(), "(?:#)([^\\s]+)", "<a href='http://localhost:8080/'>$1</a>"))
+                .withCustomRenderer(ResponseEntity.class, new ResponseEntityRenderer());
     }
+
 }
