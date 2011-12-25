@@ -21,7 +21,7 @@ import static com.fb.restbucks.integration.builder.OrderBuilder.forAnAmericano;
 import static com.fb.restbucks.integration.matcher.ResponseEntityMatchers.hasStatus;
 import static com.fb.restbucks.integration.givenwhenthen.StateExtractors.theResponse;
 import static com.fb.restbucks.integration.givenwhenthen.Whens.aGETRequestIsMadeTo;
-import static com.fb.restbucks.integration.givenwhenthen.Whens.aPUTRequestIsMadeTo;
+import static com.fb.restbucks.integration.givenwhenthen.Whens.aPOSTRequestIsMadeTo;
 import static com.googlecode.yatspec.internal.totallylazy.Sequences.sequence;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertEquals;
@@ -35,7 +35,7 @@ public class OrderResourceIT extends TestState implements WithCustomResultListen
     @Test
     public void postAnOrder() throws Exception {
         given(aDeployedServer());
-        when(aPUTRequestIsMadeTo("/orders/", forAnAmericano()));
+        when(aPOSTRequestIsMadeTo("/orders/", forAnAmericano()));
         then(theResponse(), hasStatus(equalTo(HttpStatus.CREATED)));
     }
 

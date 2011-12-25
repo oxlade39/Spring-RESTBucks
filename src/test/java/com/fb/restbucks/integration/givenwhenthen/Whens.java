@@ -19,7 +19,7 @@ import static java.util.Arrays.asList;
  */
 public class Whens {
 
-    public static <T> ActionUnderTest aPUTRequestIsMadeTo(final String relativePath, final TestBuilder<T> bodyBuilder) {
+    public static <T> ActionUnderTest aPOSTRequestIsMadeTo(final String relativePath, final TestBuilder<T> bodyBuilder) {
         return new RequestExecutor<T>(relativePath, bodyBuilder, HttpMethod.POST);
     }
     

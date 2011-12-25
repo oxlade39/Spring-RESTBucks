@@ -42,12 +42,4 @@ public class DispatcherConfig extends WebMvcConfigurerAdapter {
         converters.add(converter);
         return converters;
     }
-
-
-//    @Bean
-//	public DefaultAnnotationHandlerMapping handlerMapping(){
-//		return new DefaultAnnotationHandlerMapping();
-//	}
-
-
 }
